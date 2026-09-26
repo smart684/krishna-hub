@@ -271,6 +271,77 @@
 
 
 <body>
+<!-- =========================
+     STUDY ZONE
+========================= -->
+
+<h2>📚 STUDY ZONE</h2>
+
+<div style="
+    width: 80%;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 25px;
+    background: #1f2937;
+    border: 2px solid #60a5fa;
+    border-radius: 15px;
+">
+
+    <h3 style="color: #60a5fa;">
+        🎓 Class 10 — CBSE 2026–27
+    </h3>
+
+    <p>
+        📄 Sample Question Papers & Marking Schemes
+    </p>
+
+    <a href="https://cbseacademic.nic.in/SQP_CLASSX_2026-27.html"
+       target="_blank">
+
+        <button>
+            📚 View CBSE Sample Papers
+        </button>
+
+    </a>
+
+    <br>
+
+    <button onclick="showSubjects()">
+        📖 Select Subject
+    </button>
+
+    <div id="subjects" style="
+        display: none;
+        margin-top: 25px;
+    ">
+
+        <h3 style="color: #facc15;">
+            📚 Choose Subject
+        </h3>
+
+        <button onclick="selectSubject('Hindi')">
+            🇮🇳 Hindi
+        </button>
+
+        <button onclick="selectSubject('English')">
+            🇬🇧 English
+        </button>
+
+        <button onclick="selectSubject('Mathematics')">
+            ➗ Mathematics
+        </button>
+
+        <button onclick="selectSubject('Science')">
+            🔬 Science
+        </button>
+
+        <p id="selectedSubject"
+           style="color: #4ade80; font-size: 18px; margin-top: 20px;">
+        </p>
+
+    </div>
+
+</div>
 
    <h1>🚀 KRISHNA HUB</h1>
 <p>Games • AI Tools • Student Tools</p> 
@@ -375,9 +446,6 @@
         </button>
 
     </div>
-
-
-
     <!-- =========================
          ARCADE BLASTER
     ========================= -->
@@ -615,10 +683,12 @@
                 "shootGame"
             );
 
+
         const shootTarget =
             document.getElementById(
                 "shootTarget"
             );
+
 
         const gun =
             document.getElementById(
@@ -983,9 +1053,6 @@
 
             }
         );
-
-
-
         /* END SHOOT GAME */
 
         function endShootGame() {
@@ -1008,32 +1075,70 @@
         /* FIRST TARGET POSITION */
 
         moveShootTarget();
-function generateText() {
 
-    let input = document.getElementById("aiInput").value;
 
-    let result = document.getElementById("aiResult");
 
-    if (input.trim() === "") {
-        result.innerHTML = "⚠️ Please write a topic first!";
-        return;
-    }
+        /* =========================
+           AI TEXT GENERATOR
+        ========================= */
 
-    result.innerHTML =
-        "🤖 Generating...";
+        function generateText() {
 
-    setTimeout(function() {
+            let input =
+                document.getElementById("aiInput").value;
 
-        result.innerHTML =
-            "<b>✨ AI Result:</b><br><br>" +
-            "Here is a simple response about:<br><br>" +
-            "<b>" + input + "</b><br><br>" +
-            "This is a demo AI response. " +
-            "Later, we can connect a real AI API to make this generate actual AI answers.";
+            let result =
+                document.getElementById("aiResult");
 
-    }, 800);
-}
+
+            if (input.trim() === "") {
+
+                result.innerHTML =
+                    "⚠️ Please write a topic first!";
+
+                return;
+            }
+
+
+            result.innerHTML =
+                "🤖 Generating...";
+
+
+            setTimeout(function() {
+
+                result.innerHTML =
+                    "<b>✨ AI Result:</b><br><br>" +
+                    "Here is a simple response about:<br><br>" +
+                    "<b>" + input + "</b><br><br>" +
+                    "This is a demo AI response. " +
+                    "Later, we can connect a real AI API to make this generate actual AI answers.";
+
+            }, 800);
+        }
+
+
+
+        /* =========================
+           STUDY SUBJECT SELECTION
+        ========================= */
+
+        function showSubjects() {
+
+            document.getElementById(
+                "subjects"
+            ).style.display = "block";
+        }
+
+
+        function selectSubject(subject) {
+
+            document.getElementById(
+                "selectedSubject"
+            ).innerHTML =
+                "✅ You selected: " + subject;
+        }
     </script>
 
 </body>
+
 </html>
